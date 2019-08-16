@@ -2,16 +2,17 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Created by LaunchCode
+ * Created by Cat
  */
-public class TechJobs {
+class TechJobs {
 
-    private static Scanner in = new Scanner(System.in);
+    private static final Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -72,13 +73,13 @@ public class TechJobs {
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
-        Integer choiceIdx;
-        Boolean validChoice = false;
+        int choiceIdx;
+        boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
         // Put the choices in an ordered structure so we can
         // associate an integer with each one
-        Integer i = 0;
+        int i = 0;
         for (String choiceKey : choices.keySet()) {
             choiceKeys[i] = choiceKey;
             i++;
@@ -89,7 +90,7 @@ public class TechJobs {
             System.out.println("\n" + menuHeader);
 
             // Print available choices
-            for (Integer j = 0; j < choiceKeys.length; j++) {
+            for (int j = 0; j < choiceKeys.length; j++) {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
             }
 
@@ -103,14 +104,34 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+    //*****
+    //position type: Data Scientist / Business Intelligence
+    //name: Sr. IT Analyst (Data/BI)
+    //employer: Bull Moose Industries
+    //location: Saint Louis
+    //core competency: Statistical Analysis
+    //*****
+    private static void printJobs(ArrayList<HashMap<String, String>> AJob) {
+        if (AJob.size() == 0) {
+            System.out.println("No Results were found");
+        } else {
+            for (HashMap<String, String> stringStringHashMap : AJob) {
+                System.out.println("*****");
+                for (Map.Entry<String, String> entry : stringStringHashMap.entrySet()) {
+                    String key = entry.getKey();
+                    Object value = entry.getValue();
 
-        System.out.println("printJobs is not implemented yet");
+                    System.out.println(key + ":" + value);
+                }
+                System.out.println("*****\n");
+            }
+            System.out.println("printJobs is not implemented yet");
+        }
     }
 }
