@@ -129,9 +129,8 @@ class TechJobs {
 
                     System.out.println(key + ":" + value);
                 }
-                System.out.println("*****\n");
+                System.out.println("*****");
             }
-            System.out.println("printJobs is not implemented yet");
         }
     }
 }
