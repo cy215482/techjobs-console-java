@@ -76,20 +76,22 @@ class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
 
         return jobs;
     }
-    public class CaseSensative{
-        public boolean main(String[] args){
-            String s1 = "j0avaScript";
-            String s2 = "javas";
-            return s1.toLowerCase().contains(s2.toLowerCase());
-        }
-    }
+    //public class CaseSensative {
+         //   public boolean main(String[] args) {
+             //   String s1 = "JavaScript";
+               // String s2 = "j";
+              //  return s1.toLowerCase().contains(s2.toLowerCase());
+           // }
+    //}
+
+
 
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
